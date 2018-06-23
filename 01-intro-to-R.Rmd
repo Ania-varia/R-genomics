@@ -36,7 +36,7 @@ _Start by showing an example of a script_
 
 ## R prompt
 
-In R console, the ">" sign is a prompt - a signal that R is ready to receive input from the user. R automatically starts a line with ">". 
+In R console, the ">" sign is a prompt - a signal that R is ready to receive input from the user. R automatically starts a line with ">". To make R to react to your input, just press `ENTER`.
 
 ## Creating objects
 
@@ -44,7 +44,7 @@ In R console, the ">" sign is a prompt - a signal that R is ready to receive inp
 ### Creating objects (assignments)
 ```
 
-You can get an output from R simply by typing in math in the console:
+You can get an output from R simply by typing in math in the console and pressing `ENTER`:
 
 ```{r, purl=FALSE}
 3 + 5
@@ -170,12 +170,13 @@ or both. A function usually gets one or more
 inputs called *arguments*. Functions often (but not always) return a *value*. A
 typical example would be the function `sqrt()`. The input (the argument) must be
 a number, and the return value (in fact, the output) is the square root of that
-number. Executing a function ('running it') is called *calling* the function. An
+number. Executing a function ('running it') is called *calling* the function. To call a function, type the name of a function followed by parentheses with its arguments. 
+An
 example of a function call is:
 
 `sqrt(a)`
 
-Here, the value of `a` is given to the `sqrt()` function, the `sqrt()` function
+Here, the value of `a` is given as an argument to the `sqrt()` function. The function `sqrt()` 
 calculates the square root. This function is very simple, because it takes just one
 argument.
 
