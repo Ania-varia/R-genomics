@@ -107,7 +107,7 @@ In RStudio, typing <kbd>Alt</kbd> + <kbd>-</kbd> (push <kbd>Alt</kbd> at the sam
 
 - What happens if we assign a different value to `a` and then re-add `a` and `b`?
 - Does it work if you just change `a` in the script and then add `a` and `b`? Did you still get the same answer after they changed `a`? If so, why do you think that might be?
-- We can also assign a + b to a new variable, `total`. How would you do this?
+- We can also assign `a` + `b` to a new variable, `total`. How would you do this?
 
 ## Notes on objects
 
