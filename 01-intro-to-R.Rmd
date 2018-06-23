@@ -34,13 +34,17 @@ _Start by showing an example of a script_
 * Point to indentation and consistency in spacing to improve clarity
 
 
+## R prompt
+
+In R console, the ">" sign is a prompt - a signal that R is ready to receive input from the user. R automatically starts a line with ">". 
+
 ## Creating objects
 
 ```{r, echo=FALSE, purl=TRUE}
 ### Creating objects (assignments)
 ```
 
-You can get an output from R simply by typing in math in the console
+You can get an output from R simply by typing in math in the console:
 
 ```{r, purl=FALSE}
 3 + 5
@@ -74,7 +78,7 @@ _objects_. To create objects, we need to give it a name followed by the
 assignment operator `<-` and the value we want to give it.
 
 For instance, instead of adding 3 + 5, we can assign those
-values to objects and then add them.
+values to objects and then add them. Here we create two very simple objects: two scalar variables (numbers).
 
 ```{r, purl=FALSE}
 # assign 3 to a
@@ -101,26 +105,33 @@ In RStudio, typing <kbd>Alt</kbd> + <kbd>-</kbd> (push <kbd>Alt</kbd> at the sam
 
 ### Exercise
 
-- What happens if we change `a` and then re-add `a` and `b`?
+- What happens if we assign a different value to `a` and then re-add `a` and `b`?
 - Does it work if you just change `a` in the script and then add `a` and `b`? Did you still get the same answer after they changed `a`? If so, why do you think that might be?
-- We can also assign a + b to a new variable, `c`. How would you do this?
+- We can also assign a + b to a new variable, `total`. How would you do this?
 
 ## Notes on objects
 
 Objects can be given any name such as `x`, `current_temperature`, or
-`subject_id`. You want your object names to be explicit and not too long. They
-cannot start with a number (`2x` is not valid but `x2` is). R is case sensitive
-(e.g., `Genome_length_mb` is different from `genome_length_mb`). There are some names that
+`subject_id`.
+
+R imposes some rules on names: they cannot start with a number (`2x` is not valid but `x2` is). Safe names should contain only letters, numbers, underscore character, optionally a dot.
+R is case-sensitive
+(e.g., `Genome_length_mb` is different from `genome_length_mb`). 
+Also, there are some names that
 cannot be used because they represent the names of fundamental functions in R
 (e.g., `if`, `else`, `for`, see
 [here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html)
 for a complete list). In general, even if it's allowed, it's best to not use
 other function names (e.g., `c`, `T`, `mean`, `data`, `df`, `weights`). When in
-doubt, check the help to see if the name is already in use. It's also best to avoid
+doubt, check the help to see if the name is already in use. 
+ 
+It's also best to avoid
 dots (`.`) within a variable name as in `my.dataset`. There are many functions
 in R with dots in their names for historical reasons, but because dots have a
 special meaning in R (for methods) and other programming languages, it's best to
-avoid them. It is also recommended to use nouns for variable names, and verbs
+avoid them. 
+Usually you want your object names to be explicit and not too long. 
+It is also recommended to use nouns for variable names, and verbs
 for function names. It's important to be consistent in the styling of your code
 (where you put spaces, how you name variables, etc.). In R, two popular style
 guides are [Hadley Wickham's](http://adv-r.had.co.nz/Style.html) and
@@ -140,14 +151,22 @@ genome_size_mb <- 35
 genome_size_mb
 ```
 
+Variable value  does not have to be a number - it might be characters. Character variables are always surrounded by quotes:
+
+```{r}
+# Assigns a value to a variable
+species_name <- "Escherichia coli"
+
+species_name 
+```
+
 ## Functions
 
 The other key feature of R are functions. These are R's built in capabilities. Some examples of these are mathematical functions, like
-`sqrt` and `round`. You can also get functions from libraries (which we'll talk about in a bit), or even write your own.
+`sqrt` and `round`. You can also get functions from libraries (which we'll talk about in a bit), or write your own.
 
 Functions are "canned scripts" that automate something complicated or convenient
-or both.  Many functions are predefined, or become available when using the
-function `library()` (more on that later). A function usually gets one or more
+or both. A function usually gets one or more
 inputs called *arguments*. Functions often (but not always) return a *value*. A
 typical example would be the function `sqrt()`. The input (the argument) must be
 a number, and the return value (in fact, the output) is the square root of that
@@ -164,13 +183,11 @@ The return 'value' of a function need not be numerical (like that of `sqrt()`),
 and it also does not need to be a single item: it can be a set of things, or
 even a data set. We'll see that when we read data files in to R.
 
-Arguments can be anything, not only numbers or filenames, but also other
+Arguments can be anything, not only numbers but also other
 objects. Exactly what each argument means differs per function, and must be
-looked up in the documentation (see below). If an argument alters the way the
-function operates, such as whether to ignore 'bad values', such an argument is
-sometimes called an *option*.
+looked up in the documentation (see below).
 
-Most functions can take several arguments, but many have so-called *defaults*.
+Most functions can take several arguments. Many have so-called *defaults*.
 If you don't specify such an argument when calling the function, the function
 itself will fall back on using the *default*. This is a standard value that the
 author of the function specified as being "good enough in standard cases". An
@@ -216,8 +233,8 @@ to do, and if you share your code with others that includes less known functions
 it makes your code difficult to read. (It's however OK to not include the names
 of the arguments for basic functions like `mean`, `min`, etc...)
 
-Another advantage of naming arguments, is that the order doesn't matter.
-This is useful when there start to be more arguments.
+Another advantage of naming arguments, is that the order of arguments doesn't matter.
+This is useful when there are many arguments.
 
 
 ### Exercise
@@ -249,7 +266,7 @@ It turns out an E. coli genome doesn't weigh very much.
 
 ### Exercise
 
-We can also change the variable's value by assigning it a new one. Say
+We can change the variable's value by assigning it a new one. Say
 we want to think about a human genome rather than E. coli. Change `genome_length_mb` to 3000 and figure out the weight of the human
 genome.
 
@@ -260,7 +277,7 @@ genome_length_mb <- 3000.0
 genome_length_mb / 978.0
 ```
 
-This means that assigning a value to one variable does not change the values of
+Assigning a value to one variable does not change the values of
 other variables.  For example, let's store the genome's weight in a variable.
 
 ```{r, purl=FALSE}
@@ -286,8 +303,8 @@ What do you think is the current content of the object `genome_weight_pg`? 3.06 
 
 A vector is the most common and basic data structure in R, and is pretty much
 the workhorse of R. It's basically just a list of values, mainly either numbers or
-characters. They're special lists that you can do math with. You can assign this list of values to a variable, just like you
-would for one item. For example we can create a vector of genome lengths:
+characters. You can assign this collection of values to a variable, just like you
+would for one item. For example we can create a vector of genome lengths. To create a vector we use the function c() and enumerate all the values inside the parenthesis:
 
 ```{r, purl=FALSE}
 glengths <- c(4.6, 3000, 50000)
@@ -300,6 +317,8 @@ A vector can also contain characters:
 species <- c("ecoli", "human", "corn")
 species
 ```
+
+However, all elements of a vector have to be of the same type: either all numbers, either all characters.
 
 There are many functions that allow you to inspect the content of a
 vector. `length()` tells you how many elements are in a particular vector:
@@ -316,9 +335,15 @@ You can also do math with whole vectors. For instance if we wanted to multiply t
 5 * glengths
 ```
 
-or we can add the data in the two vectors together
+or we can add the data in the two vectors together:
 
 ```{r, purl=FALSE}
+glengths + glengths
+```
+As with single-number variables, we can directly assign the value to a new variable:
+
+```{r, purl=FALSE}
+glengths + glengths
 new_lengths <- glengths + glengths
 new_lengths
 ```
@@ -344,7 +369,7 @@ str(glengths)
 str(species)
 ```
 
-You can add elements to your vector simply by using the `c()` function:
+You can append new elements to your vector by using the `c()` function:
 
 ```{r, purl=FALSE}
 lengths <- c(glengths, 90) # adding at the end
@@ -358,14 +383,28 @@ the beginning. We can do this over and over again to build a vector or a
 dataset. As we program, this may be useful to autoupdate results that we are
 collecting or calculating.
 
-We just saw 2 of the 6 **data types** that R uses: `"character"` and
-`"numeric"`. The other 4 are:       
+We just saw 2 of the main **data types** that R uses: `"character"` and
+`"numeric"`. Some other are:       
 
 * `"logical"` for `TRUE` and `FALSE` (the boolean data type)
 * `"integer"` for integer numbers (e.g., `2L`, the `L` indicates to R that it's an integer)
 * `"complex"` to represent complex numbers with real and imaginary parts (e.g.,
   `1+4i`) and that's all we're going to say about them
-* `"raw"` that we won't discuss further
+
+
+### Exercise
+
+What happens if we insist on mixing different types within one vector? Try:
+
+```{r, purl=FALSE}
+mixed_vector <- c(34, 2, "human")
+mixed_vector 
+```
+What is type of the data within mixed_vector?
+
+```{r, purl=FALSE}
+class(mixed_vector)
+```
 
 Vectors are one of the many **data structures** that R uses. Other important
 ones are lists (`list`), matrices (`matrix`), data frames (`data.frame`) and
