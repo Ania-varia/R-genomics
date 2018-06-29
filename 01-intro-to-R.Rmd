@@ -13,8 +13,9 @@ knitr::opts_chunk$set(results='hide', fig.path='img/r-lesson-')
 
 > ## Learning Objectives
 >
-> * Assign names to objects in R with <- and =.
-> * Solve mathematical operations in R.
+> * Perform arythmetic operations in R.
+> * Perform basic variable assignement.
+> * Describe rules for names in R.
 > * Describe what a function is in R.
 > * Describe what vectors are and how they can be manipulated in R.
 > * Inspect the content of vectors in R and describe their content with class and str.
@@ -68,8 +69,13 @@ can't type in a new command. To get out of this press the <kbd>Esc</kbd> key. Th
 
 Exercise
 
-Compute (2^5^ + 3)/6 
+Compute (3<sup>5</sup> + 4)6 
 
+Solution. Use ^ to raise to a power and * to multiply.
+
+```{r, purl=FALSE, eval=FALSE}
+(3^5 + 4)*6
+```
 
 
 ## Creating objects
@@ -101,17 +107,18 @@ a + b
 
 `<-` is the assignment operator. It assigns values on the right to objects on
 the left. So, after executing `x <- 3`, the value of `x` is `3`. The arrow can
-be read as 3 **goes into** `x`.  You can also use `=` or `->`for assignments but not in
+be read as 3 **goes into** `x`. 
+
+You can also use `=` or `->`for assignments but not in
 all contexts so it is good practice to use `<-` for assignments. `=` should only
 be used to specify the values of arguments in functions, see below.
-
 In RStudio, typing <kbd>Alt</kbd> + <kbd>-</kbd> (push <kbd>Alt</kbd> at the same time as the <kbd>-</kbd> key) will write ` <- ` in a single keystroke.
 
 ### Exercise
 
-- What happens if we assign a different value to `a` and then re-add `a` and `b`?
-- Does it work if you just change `a` in the script and then add `a` and `b`? Did you still get the same answer after they changed `a`? If so, why do you think that might be?
+- What happens if we assign a different value to `a` and then add `a` and `b`?
 - We can also assign `a` + `b` to a new variable, `total`. How would you do this?
+- After you assigned  `a` + `b` to `total`, change value of `b`. Did it change the value of `total`?
 
 ## Notes on objects
 
@@ -374,7 +381,7 @@ str(glengths)
 str(species)
 ```
 
-You can append new elements to your vector by using the `c()` function:
+You can add new elements to your vector by using the `c()` function:
 
 ```{r, purl=FALSE}
 lengths <- c(glengths, 90) # adding at the end
@@ -410,6 +417,16 @@ What is type of the data within mixed_vector?
 ```{r, purl=FALSE}
 class(mixed_vector)
 ```
+
+### Exercise
+
+How many species would we have if there were 4 times as many as now?
+
+```{r, purl=FALSE}
+length(species)*4
+```
+
+
 
 Vectors are one of the many **data structures** that R uses. Other important
 ones are lists (`list`), matrices (`matrix`), data frames (`data.frame`) and
