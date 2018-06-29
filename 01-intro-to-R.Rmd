@@ -570,11 +570,6 @@ sessionInfo()
   useful guidelines
 
 
-> > ~~~
-> > {: .language-r}
-> {: .solution}
-{: .challenge}
-
 
 > ## Using the Apply Function on Patient Data
 >
