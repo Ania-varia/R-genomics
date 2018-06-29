@@ -34,11 +34,7 @@ _Start by showing an example of a script_
 * Point to indentation and consistency in spacing to improve clarity
 
 
-## R prompt
-
-In R console, the ">" sign is a prompt - a signal that R is ready to receive input from the user. R automatically starts a line with ">". To make R to react to your input, just press `ENTER`.
-
-## Creating objects
+## R calculator
 
 ```{r, echo=FALSE, purl=TRUE}
 ### Creating objects (assignments)
@@ -69,6 +65,14 @@ Now R is trying to run that sentence as a command, and it
 doesn't work. Now we're stuck over in the console. The
 `+` sign means that it's still waiting for input, so we
 can't type in a new command. To get out of this press the <kbd>Esc</kbd> key. This will work whenever you're stuck with that `+` sign.
+
+Exercise
+
+Compute (2^5^ + 3)/6 
+
+
+
+## Creating objects
 
 It's great that R is a glorified caluculator, but obviously
 we want to do more interesting things.
